@@ -10,9 +10,10 @@ class AuthForm(forms.Form):
         cleaned_data = super(AuthForm, self).clean()
         username = cleaned_data.get('username', '')
         password = cleaned_data.get('password', '')
-        self.user = authenticate(username=username, password=password)
-        if self.user is None:
-            raise forms.ValidationError(_('Incorrect username or password.'))
+        if username and password:
+            self.user = authenticate(username=username, password=password)
+            if self.user is None:
+                raise forms.ValidationError(_('Incorrect username or password.'))
         return self.cleaned_data
 
 
