@@ -1,0 +1,21 @@
+<html>
+<body>
+
+{% if not user.is_authenticated %}
+    <p>Hello, this is RedisSentry test site!</p>
+    <p>You can try your favorite password cracker here:</p>
+    <p>
+    <form action="." method="POST">
+        <span style="display:inline-block;width:70px">Login:</span> {{ form.username }} {{ form.username.errors }}<br/>
+        <span style="display:inline-block;width:70px">Password:</span> {{ form.password }} {{ form.password.errors }}</p>
+        {{ form.non_field_errors }}
+        <input type="submit">
+        {% csrf_token %}
+    </form>
+{% else %}
+    You're logged in as {{ user.username }}<br>
+    <a href="{% url logout %}">logout</a>
+{% endif %}
+</body>
+</html>
+
