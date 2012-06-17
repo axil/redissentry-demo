@@ -1,0 +1,7 @@
+<html>
+<body>
+    You've successfully logged in as {{ user.username }}<br>
+    {% if user.is_staff %}<a href="{% url admin:index %}">admin</a> {% endif %}<a href="{% url logout %}">logout</a>
+</body>
+</html>
+

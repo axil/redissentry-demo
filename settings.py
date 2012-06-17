@@ -1,6 +1,6 @@
 # Django settings for rstk project.
 
-from os import path
+from os import path, environ
 PROJECT_ROOT = path.realpath(path.dirname(__file__))
 
 DEBUG = True
@@ -152,7 +152,21 @@ LOGGING = {
     }
 }
 
+ENABLE_LOGGING = True
+
 try:
     from local_settings import *
 except ImportError:
     pass
+
+if ENABLE_LOGGING:
+    if 'DJANGO_RUNSERVER' in environ:
+        from logging_runserver import LOGGING, LOGGING_TYPE    ##
+#    elif 'DJANGO_RUNFCGI' in environ:
+#	try:
+#            from logging_fcgi import LOGGING, LOGGING_TYPE      ##
+#	except:
+#            pass
+#    else:
+#        from logging_standalone import LOGGING, LOGGING_TYPE   ##
+

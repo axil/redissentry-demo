@@ -10,5 +10,18 @@ except ImportError:
 
 import settings
 
+from sys import argv
+if len(argv)>1:
+    from os import environ
+    if argv[1]=='runserver':
+        environ['DJANGO_RUNSERVER'] = ''
+    elif argv[1]=='runfcgi':
+        environ['DJANGO_RUNFCGI'] = ''
+    elif argv[1]=='sqlevolve':
+        try:
+            import deseb                        ##
+        except:
+            pass
+
 if __name__ == "__main__":
     execute_manager(settings)
