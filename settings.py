@@ -117,6 +117,7 @@ TEMPLATE_DIRS = (
 INSTALLED_APPS = (
     'rstk.core',
     'redissentry',
+    'south',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
