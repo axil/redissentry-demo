@@ -15,4 +15,6 @@ def main_page(request):
         form = AuthForm()
     return direct_to_template(request, 'core/main_page.html', {'form': form, 'user': request.user})
 
+def logged_in(request):
+    return direct_to_template(request, 'core/logged_in.html', {'user': request.user})
     
