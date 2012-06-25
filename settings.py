@@ -163,7 +163,7 @@ except ImportError:
 if ENABLE_LOGGING:
     if 'DJANGO_RUNSERVER' in environ:
         from logging_runserver import LOGGING, LOGGING_TYPE    ##
-    elif 'DJANGO_RUNFCGI' in environ:
+    else: #if 'DJANGO_RUNFCGI' in environ:
 	try:
             from logging_fcgi import LOGGING, LOGGING_TYPE      ##
 	except:

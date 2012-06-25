@@ -1,3 +1,4 @@
 /django
 /db
 /logging_fcgi.py
+/local_settings.py
